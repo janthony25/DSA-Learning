@@ -1,17 +1,25 @@
 
-// Reverse a String
-// Input: "hello"
-// Output: "olleh"
 
-function reverse(str) {
-    const reversed = [];
-    const charLength = str.length - 1;
+// Check for Palindrome
+// Input: "racecar"
+// Output: true
 
-    for (let i = charLength; i >= 0; i--) {
-        reversed.push(str[i]);
+function isPalindrome(str) {
+    let left = 0;
+    let right = str.length - 1;
+
+    while (left < right) {
+        if (str[left] === str[right]) {
+            left++;
+            right--;
+        }
+        else{
+            return false;
+        }
     }
 
-    return reversed.join('');
+    return true;
+
 }
 
-console.log(reverse('Hello world!'))
+console.log(isPalindrome("racecar"))
