@@ -1,21 +1,23 @@
 
-// Find Max Number in Array
-// Input: [1, 9, 3, 7]
-// Output: 9
-// hints :
-//  check if i < i + 1
-//  max = i
-//  
- 
-function findMax(array) {
-    let max = array[0];
+// Count Character Frequency
+// Input: "banana"
+// Output: { b:1, a:3, n:2 }
 
-    for(let i = 1; i < array.length; i++) {
-        if (array[i] > max) {
-            max = array[i];
+function charFrequency(str) {
+    const map = {};
+
+    for(let i = 0; i < str.length; i++) {
+        const char = str[i];
+
+        if(!map[char]) {
+            map[char] = 1;
+        }
+        else {
+            map[char]++;
         }
     }
 
-    return max;
+    return map;
 }
-console.log(findMax([1, 3, 5, 7, 33]))
+
+console.log(charFrequency("banana"))
