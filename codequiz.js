@@ -1,24 +1,20 @@
 
+// Fibonacci Sequence (Nth Term)
+// Input: n = 6
+// Output: 8 (0, 1, 1, 2, 3, 5, 8)
 
-// Find First Recurring Character
-// Input: [2, 5, 1, 2, 3, 5, 1]
-// Output: 2
+function fibonacci(input) {
+    let result = [0, 1];
 
-function firstRecurringChar(array) {
-    const map = {};
-
-    for (let i = 0; i < array.length; i++) {
-        const charArray = array[i];
-
-        if(map[array[i]] !== undefined) {
-            return array[i]
-        }
-        else {
-            map[array[i]] = i;
-        }
+    if (!input || typeof input !== 'number') {
+        return "Please enter a valid input"
     }
 
-    return undefined;
+    while(result.length <= input) {
+        result.push(result[result.length - 1] + result[result.length - 2])
+    }
+
+    return result;
 }
 
-console.log(firstRecurringChar([2, 1, 1, 2, 3, 5, 1]))
+console.log(fibonacci(6))
