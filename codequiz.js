@@ -1,25 +1,24 @@
 
 
-// Check for Palindrome
-// Input: "racecar"
-// Output: true
+// Find First Recurring Character
+// Input: [2, 5, 1, 2, 3, 5, 1]
+// Output: 2
 
-function isPalindrome(str) {
-    let left = 0;
-    let right = str.length - 1;
+function firstRecurringChar(array) {
+    const map = {};
 
-    while (left < right) {
-        if (str[left] === str[right]) {
-            left++;
-            right--;
+    for (let i = 0; i < array.length; i++) {
+        const charArray = array[i];
+
+        if(map[array[i]] !== undefined) {
+            return array[i]
         }
-        else{
-            return false;
+        else {
+            map[array[i]] = i;
         }
     }
 
-    return true;
-
+    return undefined;
 }
 
-console.log(isPalindrome("racecar"))
+console.log(firstRecurringChar([2, 1, 1, 2, 3, 5, 1]))
