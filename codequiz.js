@@ -1,36 +1,37 @@
 
-// Merge Two Sorted Arrays
-// Input: [1,3,5], [2,4,6]
-// Output: [1,2,3,4,5,6]
 
-function mergeSortedArrays(array1, array2) {
-    const merged = [];
-    let i = 0;
-    let j = 0;
+// Valid Anagram
+// Input: s = "listen", t = "silent"
+// Output: true
 
-    while(i < array1.length && j < array2.length) {
-        if (array1[i] <= array2[j]){
-            merged.push(array1[i]);
-            i++;
+function isAnagram(s, t) {
+    const map = {};
+
+    if (s.length !== t.length) return false;
+
+    for (let i = 0; i < s.length; i++) {
+        const char = s[i];
+
+        if(!map[s[i]]) {
+            map[char] = 1;
         }
         else {
-            merged.push(array2[j]);
-            j++;
+            map[char]++;
         }
     }
 
-    // if array 1 has remaining
-    while(i < array1.length) {
-        merged.push(array1[i]);
-        i++;
+    for (let i = 0; i < t.length; i++) {
+        const char = t[i];
+
+        if (!map[t[i]]) {
+            return false;
+        }
+        else {
+            map[char]--;
+        }
     }
 
-    while(j < array2.length) {
-        merged.push(array2[j]);
-        j++;
-    }
-
-    return merged;
+    return true;
 }
 
-console.log(mergeSortedArrays([1,3,5], [2,4,6]))
+console.log(isAnagram("silent", "listen"))
