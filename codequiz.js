@@ -1,37 +1,21 @@
 
+// Find Max Number in Array
+// Input: [1, 9, 3, 7]
+// Output: 9
+// hints :
+//  check if i < i + 1
+//  max = i
+//  
+ 
+function findMax(array) {
+    let max = array[0];
 
-// Valid Anagram
-// Input: s = "listen", t = "silent"
-// Output: true
-
-function isAnagram(s, t) {
-    const map = {};
-
-    if (s.length !== t.length) return false;
-
-    for (let i = 0; i < s.length; i++) {
-        const char = s[i];
-
-        if(!map[s[i]]) {
-            map[char] = 1;
-        }
-        else {
-            map[char]++;
+    for(let i = 1; i < array.length; i++) {
+        if (array[i] > max) {
+            max = array[i];
         }
     }
 
-    for (let i = 0; i < t.length; i++) {
-        const char = t[i];
-
-        if (!map[t[i]]) {
-            return false;
-        }
-        else {
-            map[char]--;
-        }
-    }
-
-    return true;
+    return max;
 }
-
-console.log(isAnagram("silent", "listen"))
+console.log(findMax([1, 3, 5, 7, 33]))
