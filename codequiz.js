@@ -1,23 +1,25 @@
+// Remove Duplicates from Sorted Array
+// Input: [1,1,2,3,3]
+// Output: [1,2,3]
 
-// Count Character Frequency
-// Input: "banana"
-// Output: { b:1, a:3, n:2 }
+function removeDuplicates(nums) {
+    if (nums.length === 0) return 0;
 
-function charFrequency(str) {
-    const map = {};
+    let slow = 0;
 
-    for(let i = 0; i < str.length; i++) {
-        const char = str[i];
-
-        if(!map[char]) {
-            map[char] = 1;
-        }
-        else {
-            map[char]++;
+    for (let fast = 1; fast < nums.length; fast++) {
+        if (nums[fast] !== nums[slow]) {
+            slow++;
+            nums[slow] = nums[fast];
         }
     }
 
-    return map;
+    return slow + 1; // Count of unique elements
 }
 
-console.log(charFrequency("banana"))
+// Example usage
+const arr = [1, 1, 2, 3, 3];
+const length = removeDuplicates(arr);
+
+console.log("Unique count:", length);              // Output: 3
+console.log("Result:", arr.slice(0, length));      // Output: [1, 2, 3]
