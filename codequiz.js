@@ -1,22 +1,17 @@
-// Two Sum
-// Input: nums = [2, 7, 11, 15], target = 9
-// Output: [0, 1]
 
-function twoSum(array, target) {
-    const map = {};
+// Reverse a String
+// Input: "hello"
+// Output: "olleh"
 
-    for (let i = 0; i < array.length; i++) {
-        const complement = target - array[i];
+function reverse(str) {
+    const reversed = [];
+    const charLength = str.length - 1;
 
-        if (map[complement] !== undefined) {
-            return [map[complement], i];
-        }
-        else {
-            map[array[i]] = i;
-        }
+    for (let i = charLength; i >= 0; i--) {
+        reversed.push(str[i]);
     }
 
-    return map;
+    return reversed.join('');
 }
 
-console.log(twoSum([9, 1, 7, 15, 5, 4], 9))
+console.log(reverse('Hello world!'))
