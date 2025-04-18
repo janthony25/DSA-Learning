@@ -1,20 +1,36 @@
 
-// Fibonacci Sequence (Nth Term)
-// Input: n = 6
-// Output: 8 (0, 1, 1, 2, 3, 5, 8)
+// Merge Two Sorted Arrays
+// Input: [1,3,5], [2,4,6]
+// Output: [1,2,3,4,5,6]
 
-function fibonacci(input) {
-    let result = [0, 1];
+function mergeSortedArrays(array1, array2) {
+    const merged = [];
+    let i = 0;
+    let j = 0;
 
-    if (!input || typeof input !== 'number') {
-        return "Please enter a valid input"
+    while(i < array1.length && j < array2.length) {
+        if (array1[i] <= array2[j]){
+            merged.push(array1[i]);
+            i++;
+        }
+        else {
+            merged.push(array2[j]);
+            j++;
+        }
     }
 
-    while(result.length <= input) {
-        result.push(result[result.length - 1] + result[result.length - 2])
+    // if array 1 has remaining
+    while(i < array1.length) {
+        merged.push(array1[i]);
+        i++;
     }
 
-    return result;
+    while(j < array2.length) {
+        merged.push(array2[j]);
+        j++;
+    }
+
+    return merged;
 }
 
-console.log(fibonacci(6))
+console.log(mergeSortedArrays([1,3,5], [2,4,6]))
