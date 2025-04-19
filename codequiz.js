@@ -1,11 +1,36 @@
-function reverse(str) {
-    const reversed = [];
-    let charLength = str.length - 1;
+// "2.
+// Merge sorted array
+// mergeSortedArrays ([0,3, 4, 31], [4, 6, 30]);
+// [0, 3, 4, 4, 6, 30, 31]"
 
-    for (let i = charLength; i >= 0; i--) {
-        reversed.push(str[i]);
+ function mergeSortedArrays(array1, array2) {
+    const merged = [];
+    let i = 0, j = 0;
+
+    while(i < array1.length && j < array2.length) {
+        if (array1[i] <= array2[j]) {
+            merged.push(array1[i]);
+            i++;
+        }
+        else {
+            merged.push(array2[j]);
+            j++;
+        }
     }
 
-    return reversed.join('')
-}
-console.log(reverse("Hello!"))
+    // if there are remaining items in array1
+    while (i < array1.length) {
+        merged.push(array1[i]);
+        i++;
+    };
+
+    // if there are remaining items in array2
+    while(j < array2.length) {
+        merged.push(array2[j]);
+        j++;
+    }
+
+    return merged;
+ }
+
+ console.log(mergeSortedArrays ([0,3, 4, 31], [4, 6, 30]))
