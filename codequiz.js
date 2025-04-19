@@ -1,27 +1,20 @@
-// Fibonacci Sequence (Nth Term)
-// Input: n = 6
-// Output: 8 (0, 1, 1, 2, 3, 5, 8)
+// Factorial
+// 5! = 5 * 4 * 3 * 2 * 1
+// 120
 
-function fibonacci(n) {
-    let array = [0, 1];
+function findFactorial(number) {
 
-    for (let i = 2; i <= n; i++) {
-        array.push(array[i - 1] + array[i - 2]);
+    let result = 1;
+
+    for (let i = number; i > 1; i--) {
+        result *= i;
     }
-    console.log(array)
-    return array[n]
+
+    return result;
 }
 
-console.log(fibonacci(5))
+console.log(findFactorial(5))
 /* 
-
-
-if : 3
-
-[0, 1]
-
-result.length - 1  == 1
-result.length - 2  == 0
 
 
 
