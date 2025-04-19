@@ -1,36 +1,26 @@
-// "2.
-// Merge sorted array
-// mergeSortedArrays ([0,3, 4, 31], [4, 6, 30]);
-// [0, 3, 4, 4, 6, 30, 31]"
+// " 1.
+//     First recurring number
+ 
+//     Given an array = [2, 5, 1, 2, 3, 5, 1, 2, 4];
+//     It should return 2
 
- function mergeSortedArrays(array1, array2) {
-    const merged = [];
-    let i = 0, j = 0;
+//     Given an array = [2, 1, 1, 2, 3, 5, 1, 2, 4];
+//     It should return 1
 
-    while(i < array1.length && j < array2.length) {
-        if (array1[i] <= array2[j]) {
-            merged.push(array1[i]);
-            i++;
+//     Given an array = [2, 3, 4, 5]
+//     It should return undefined"""
+
+function firstRecurringNumber(array) {
+    const map = {};
+
+    for(let i = 0; i < array.length; i++) {
+        if(map[array[i]] !== undefined) {
+            return array[i];
         }
         else {
-            merged.push(array2[j]);
-            j++;
+            map[array[i]] = i
         }
     }
+}
 
-    // if there are remaining items in array1
-    while (i < array1.length) {
-        merged.push(array1[i]);
-        i++;
-    };
-
-    // if there are remaining items in array2
-    while(j < array2.length) {
-        merged.push(array2[j]);
-        j++;
-    }
-
-    return merged;
- }
-
- console.log(mergeSortedArrays ([0,3, 4, 31], [4, 6, 30]))
+console.log(firstRecurringNumber([2, 1, 1, 2, 3, 5, 1, 2, 4]))
