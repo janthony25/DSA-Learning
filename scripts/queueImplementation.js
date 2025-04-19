@@ -38,6 +38,9 @@ class Queue {
         if(this.first === this.last) {
             return null;
         }
+
+        // just in case needed to reference in the future
+        const holdingPointer = this.first; 
         // Remove the first in queue
         this.first = this.first.next;
         this.length--;
