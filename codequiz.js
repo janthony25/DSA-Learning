@@ -1,37 +1,31 @@
-// "
-// USE SET()
-// 5. Longest Substring Without Repeating Characters
+// Fibonacci Sequence (Nth Term)
+// Input: n = 6
+// Output: 8 (0, 1, 1, 2, 3, 5, 8)
 
-// ❓ Question:
-// Return the length of the longest substring with no repeating characters.
+function fibonacci(n) {
+    let array = [0, 1];
 
-
-// Input: ""abcabcbb""
-// Output: 3"
-
-function longestSubstring(str) {
-    let longestStr = 0;
-    let set = new Set();
-    
-    let left = 0;
-    let right = 0;
-
-    while(right < str.length) {
-        const char = str[right];
-
-        if(!set.has(char)) {
-            set.add(char);
-            longestStr = Math.max(longestStr, set.size);
-            right++;
-        }
-        else {
-            const char = str[left];
-            set.delete(char);
-            left++;
-        }
+    for (let i = 2; i <= n; i++) {
+        array.push(array[i - 1] + array[i - 2]);
     }
-
-    return longestStr;
+    console.log(array)
+    return array[n]
 }
 
-console.log(longestSubstring("abcabcbb"))
+console.log(fibonacci(5))
+/* 
+
+
+if : 3
+
+[0, 1]
+
+result.length - 1  == 1
+result.length - 2  == 0
+
+
+
+
+
+
+*/
