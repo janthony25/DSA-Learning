@@ -38,7 +38,7 @@ class Stack {
         if(this.top === this.bottom) {
             this.bottom = null;
         }
-        const holdingPointer = this.top;
+        // const holdingPointer = this.top;
         this.top = this.top.next;
         this.length--;
         return this;
@@ -50,4 +50,5 @@ myStack.push('Discord')
 myStack.push('Google')
 myStack.push('Facebook')
 myStack.pop()
+
 console.log(myStack)
