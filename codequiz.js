@@ -1,28 +1,24 @@
-// " 1.
-//     First recurring number
- 
-//     Given an array = [2, 5, 1, 2, 3, 5, 1, 2, 4];
-//     It should return 2
+// " // Character Frequency Counter
+ // Problem:
+ // Given a string, count how many times each character appears.
 
-//     Given an array = [2, 1, 1, 2, 3, 5, 1, 2, 4];
-//     It should return 1
+ // Input: hello
+ // Output: { h: 1, e: 1, l: 2, o: 1 }"
 
-//     Given an array = [2, 3, 4, 5]
-//     It should return undefined"""
+ function charFreq(str) {
+   const map = {};
 
-function firstRecurringNumber(array)  {
-    const map = {};
+   for (let i = 0; i < str.length; i++) {
+        const char = str[i];
 
-    for (let i = 0; i < array.length; i++) {
-        const char = array[i];
-        if (map[array[i]] !== undefined) {
-            return char;
-        }else {
-            map[array[i]] = i;
+        if (!map[char]) {
+            map[char] = 1;
+        } else {
+            map[char]++;
         }
-    }
+   }
 
-    return undefined;
-}
+   return map;
+ }
 
-console.log(firstRecurringNumber([2, 1, 1, 2, 3, 5, 1, 2, 4]))
+ console.log(charFreq("Hello"))
