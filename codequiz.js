@@ -1,24 +1,23 @@
-// " // Character Frequency Counter
- // Problem:
- // Given a string, count how many times each character appears.
+// Two Sum
 
- // Input: hello
- // Output: { h: 1, e: 1, l: 2, o: 1 }"
+// Return the indices of two numbers that add up to the target.
 
- function charFreq(str) {
-   const map = {};
+// Input: [2, 7, 11, 15], target = 9
+// Output: [0, 1]"
+ 
+function twoSum(array, target) {
+    const map = {};
 
-   for (let i = 0; i < str.length; i++) {
-        const char = str[i];
+    for (let i = 0; i < array.length; i++) {
+        const complement = target - array[i];
 
-        if (!map[char]) {
-            map[char] = 1;
-        } else {
-            map[char]++;
+        if(map[complement] !== undefined) {
+            return [map[complement], i];
         }
-   }
+        else {
+            map[array[i]] = i;
+        }
+    }
+}
 
-   return map;
- }
-
- console.log(charFreq("Hello"))
+console.log(twoSum([2, 6, 11, 7, 15], 9))
