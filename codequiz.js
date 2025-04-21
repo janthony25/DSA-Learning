@@ -1,24 +1,29 @@
-// Factorial
-// 5! = 5 * 4 * 3 * 2 * 1
-// 120
+// " 1.
+//     First recurring number
+ 
+//     Given an array = [2, 5, 1, 2, 3, 5, 1, 2, 4];
+//     It should return 2
 
-function findFactorial(number) {
+//     Given an array = [2, 1, 1, 2, 3, 5, 1, 2, 4];
+//     It should return 1
 
-    let result = 1;
+//     Given an array = [2, 3, 4, 5]
+//     It should return undefined"""
 
-    for (let i = number; i > 1; i--) {
-        result *= i;
+
+function firstRecurring(array) {
+    const map = {};
+
+    for(let i = 0;i < array.length; i++) {
+        const char = array[i];
+
+        if(char !== undefined) {
+            return char
+        }
+        else {
+            map[char] = i;
+        }
     }
-
-    return result;
 }
 
-console.log(findFactorial(5))
-/* 
-
-
-
-
-
-
-*/
+console.log(firstRecurring([2, 5, 1, 2, 3, 5, 1, 2, 4]))
