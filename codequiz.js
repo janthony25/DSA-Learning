@@ -1,29 +1,49 @@
-// " 1.
-//     First recurring number
- 
-//     Given an array = [2, 5, 1, 2, 3, 5, 1, 2, 4];
-//     It should return 2
-
-//     Given an array = [2, 1, 1, 2, 3, 5, 1, 2, 4];
-//     It should return 1
-
-//     Given an array = [2, 3, 4, 5]
-//     It should return undefined"""
+const box = [
+    ['#', '#', '-', '-', '-', '-', '-'],
+    ['#', '#', '#', '-', '-', '-', '-'],
+    ['#', '#', '#', '-', '-', '#', '-']
+  ];
 
 
-function firstRecurring(array) {
-    const map = {};
+  function rotateTheBox(box) {
+    const m = box.length; // rows
+    const n = box[0].length; // columns
 
-    for(let i = 0;i < array.length; i++) {
-        const char = array[i];
-
-        if(char !== undefined) {
-            return char
+    // 1. Create empty rotated box
+    let rotated = [];
+    for (let i = 0; i < n; i++) {
+        let newRow = [];
+        for (let j = 0; j < m; j++) {
+            newRow.push('.');
         }
-        else {
-            map[char] = i;
+        rotated.push(newRow);
+    }
+
+    // 2. Rotate 90 degrees clockwise
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            rotated[j][m - 1 - i] = box[i][j];
         }
     }
+
+    // 3. Simulate gravity
+    for (let col = 0; col < rotated[0].length; col++) { // col = 0 to 2
+        let emptyRow = rotated.length - 1; // start from bottom
+        for (let row = rotated.length - 1; row >= 0; row--) {
+            if (rotated[row][col] === '*') {
+                emptyRow = row - 1; // reset emptyRow above the obstacle
+            } else if (rotated[row][col] === '#') {
+                if (row !== emptyRow) {
+                    rotated[emptyRow][col] = '#';
+                    rotated[row][col] = '.';
+                }
+                emptyRow--;
+            }
+        }
+    }
+
+    return rotated;
 }
 
-console.log(firstRecurring([2, 5, 1, 2, 3, 5, 1, 2, 4]))
+
+console.log(rotateTheBox(box))
