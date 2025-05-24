@@ -1,24 +1,11 @@
-// split = turns string into an array, based on the separator you give.
+// sort() - Sorts the elements of an array in place, alphabetically by default
 
 
-// Return an array of all characters except spaces.
-// Input: "abc def"
-// Output: ["a", "b", "c", "d", "e", "f"]
-
-
-const s = "abc def";
-
-function noSpacesChars(s) {
-    const chars = s.split("");
-    const result = [];
-
-    for (let i = 0; i < chars.length; i++) {
-        if (chars[i] !== " ") {
-            result.push(chars[i]);
-        } 
-    }
-
-    return result;
+// Sort letters of a word alphabetically
+const word = "banana";
+ 
+function sortWord(word){
+    return word.split("").sort().join("");
 }
 
-console.log(noSpacesChars(s));
+console.log(sortWord(word));
