@@ -1,9 +1,10 @@
-// Slice Practice Questions
+// Splice Practice Question
 
-// Get the first 3 items from the array
-// Expected output: [10, 20, 30]
 
-const arr = [10, 20, 30, 40, 50];
-const firstThreeItems = arr.slice(0, 3);
+// Remove the first two items
+// Expected array after: [3, 4]
 
-console.log(firstThreeItems);
+const arr = [1, 2, 3, 4];
+arr.splice(0, 2);
+
+console.log(arr);
