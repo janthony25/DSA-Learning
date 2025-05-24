@@ -1,11 +1,10 @@
 // sort() - Sorts the elements of an array in place, alphabetically by default
 
 
-// Sort letters of a word alphabetically
-const word = "banana";
+const nums = [3, 2, 1];
  
-function sortWord(word){
-    return word.split("").sort().join("");
+function sortNumbers(nums) {
+    return nums.sort((a,b) => a-b);
 }
 
-console.log(sortWord(word));
+console.log(sortNumbers(nums));
