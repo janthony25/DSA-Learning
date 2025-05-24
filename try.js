@@ -1,10 +1,10 @@
 // Splice Practice Question
 
 
-// Remove the first two items
-// Expected array after: [3, 4]
+// Insert "x" amd "y" at index 1 without removing anything
+// Expected array after: ["a", "x", "y", "b", "c"]
 
-const arr = [1, 2, 3, 4];
-arr.splice(0, 2);
+const arr = ["a", "b", "c"];
+arr.splice(1, 0, "x", "y");
 
 console.log(arr);
