@@ -1,10 +1,9 @@
-// sort() - Sorts the elements of an array in place, alphabetically by default
+// Slice Practice Questions
 
+// Get the first 3 items from the array
+// Expected output: [10, 20, 30]
 
-const nums = [3, 2, 1];
- 
-function sortNumbers(nums) {
-    return nums.sort((a,b) => a-b);
-}
+const arr = [10, 20, 30, 40, 50];
+const firstThreeItems = arr.slice(0, 3);
 
-console.log(sortNumbers(nums));
+console.log(firstThreeItems);
