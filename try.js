@@ -1,22 +1,24 @@
 // split = turns string into an array, based on the separator you give.
 
 
-// Return words longer than 3 characters.
-// Input: "hi this is amazing"
-// Output: ["this", "amazing"]
+// Return an array of all characters except spaces.
+// Input: "abc def"
+// Output: ["a", "b", "c", "d", "e", "f"]
 
-const s = "hi this is amazing";
 
-function moreThan3Chars(s) {
-    const words = s.split(" "); // ["hi", "this", "is", "amazing"]
+const s = "abc def";
+
+function noSpacesChars(s) {
+    const chars = s.split("");
     const result = [];
 
-    for (let i = 0; i < words.length; i++) {
-        if (words[i].length >= 3) {
-            result.push(words[i]);
-        }
+    for (let i = 0; i < chars.length; i++) {
+        if (chars[i] !== " ") {
+            result.push(chars[i]);
+        } 
     }
+
     return result;
 }
 
-console.log(moreThan3Chars(s));
+console.log(noSpacesChars(s));
