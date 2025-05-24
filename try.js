@@ -1,21 +1,14 @@
 // split = turns string into an array, based on the separator you give.
 
 
-// Write a function to return the first letter of each word in sentence
-// output: ["h", "w", "t"]
-const s = "hello world test";
+// Count how many words are in the sentence
+// Input : "This is a test"
+// Output: 4
 
-function firstLetter(s) {
-  let words = s.split(" "); // ["hello", "world", "test"]
-  const result = [];
+const s = "This is a test";
 
-  // loop through the words
-  for (let i = 0; i < words.length; i++) {
-
-    result.push(words[i][0]);
-  }
-
-  return result;
+function countWords(s) {
+    return s.split(" ").length;
 }
 
-console.log(firstLetter(s));
+console.log(countWords(s));
