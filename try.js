@@ -1,10 +1,9 @@
 // Splice Practice Question
 
 
-// Insert "x" amd "y" at index 1 without removing anything
-// Expected array after: ["a", "x", "y", "b", "c"]
+// Replace item at index 2 with "z".
+// Expected array after: [10, 20, "z", 40]
 
-const arr = ["a", "b", "c"];
-arr.splice(1, 0, "x", "y");
-
+const arr = [10, 20, 30, 40];
+arr.splice(2, 1, "z");
 console.log(arr);
