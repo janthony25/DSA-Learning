@@ -1,14 +1,22 @@
 // split = turns string into an array, based on the separator you give.
 
 
-// Count how many words are in the sentence
-// Input : "This is a test"
-// Output: 4
+// Reverse each words in a sentence
+// Input: "cat dog"
+// Output: ["tac", "god"]
 
-const s = "This is a test";
+const s = "cat dog";
 
-function countWords(s) {
-    return s.split(" ").length;
+function reverseWords(s) {
+    const words = s.split(" "); // ["cat", "dog"]
+    const result = [];
+
+    for (let i = 0; i < words.length; i++) {
+        result.push(words[i].split("").reverse().join(""));
+    }
+
+    return result;
+    
 }
 
-console.log(countWords(s));
+console.log(reverseWords(s));
