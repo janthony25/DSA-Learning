@@ -1,9 +1,21 @@
-// Splice Practice Question
+function binarySearch(nums, target) {
+    let left = 0;
+    let right = nums.length - 1;
 
+    while (left <= right) {
+        let mid = left + Math.floor((right - left) / 2);
 
-// Replace item at index 2 with "z".
-// Expected array after: [10, 20, "z", 40]
+        if (nums[mid] === target) {
+            return mid;
+        } else if (nums[mid] > target) {
+            right = mid - 1;
+        } else if (nums[mid] < target) {
+            left = mid + 1;
+        }
+    }
 
-const arr = [10, 20, 30, 40];
-arr.splice(2, 1, "z");
-console.log(arr);
+    return -1;
+
+}
+
+console.log(binarySearch([-1, 0, 3, 5, 9, 12], 9));
