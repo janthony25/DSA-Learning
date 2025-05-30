@@ -1,11 +1,16 @@
-function factorial(n) {
-    let result = 1;
+function isPalindrome(n) {
+    if (n < 0) return false;
 
-    for (let i = 2; i <= n; i++) {
-        result *= i;
+    let original = n;
+    let reversed = 0;
+
+    while(n > 0) {
+        let digit = n % 10;
+        reversed = reversed * 10 + digit;
+        n = Math.floor(n / 10);
     }
 
-    return result;
+    return reversed === original;
 }
 
-console.log(factorial(5));
+console.log(isPalindrome(1241));
