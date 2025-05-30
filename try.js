@@ -1,16 +1,20 @@
-function isPalindrome(n) {
-    if (n < 0) return false;
+function twoSum(nums, target) {
+    let left = nums[0];
+    let right = nums.length - 1;
 
-    let original = n;
-    let reversed = 0;
+    while (left < right) {
+        let sum = nums[left] + nums[right];
 
-    while(n > 0) {
-        let digit = n % 10;
-        reversed = reversed * 10 + digit;
-        n = Math.floor(n / 10);
+        if (sum > target) {
+            right--;
+        } else if (sum < target) {
+            left++;
+        } else {
+            return [left, right];
+        }
     }
 
-    return reversed === original;
+    return null;
 }
 
-console.log(isPalindrome(1241));
+console.log(twoSum([1, 2, 4, 4], 8));
