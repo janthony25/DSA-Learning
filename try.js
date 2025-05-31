@@ -1,18 +1,11 @@
-function isPalindrome(str){
-    str = str.toLowerCase();
+const findFactorial = (n) => {
+    let result = 1;
 
-    let left = 0;
-    let right = str.length - 1;
-
-    while(left < right) {
-        if (str[left] !== str[right]) {
-            return false;
-        }
-        left++;
-        right--;
+    for(let i = 2; i <= n; i++) {
+        result *= i;
     }
-    return true;
 
+    return result;
 }
 
-console.log(isPalindrome("car"));
+console.log(findFactorial(5));
