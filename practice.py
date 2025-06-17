@@ -1,11 +1,13 @@
 # Write a function to calculate the average of an array of numbers.
 
-numbers = [1, 2, 3, 4, 5]
+numbers = [5, 8, 2, 9, 19]
 
-def average_num(arr):
-    total = 0
-    for num in arr:
-        total += num
-    return total / len(arr)
+def minimum_num(arr):
+    min = arr[0]
 
-print(average_num(numbers))
+    for num in arr[1:]:
+        if num < min:
+            min = num
+    return min
+
+print(minimum_num(numbers))
