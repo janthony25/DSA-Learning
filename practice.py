@@ -1,13 +1,21 @@
-# Write a function to calculate the average of an array of numbers.
+def second_largest(arr):
+    if len(arr) < 2:
+        raise ValueError("Array must contain at least two elements.")
 
-numbers = [5, 8, 2, 9, 19, 15, 4]
+    first = second = float('-inf')  # Start with lowest possible values
 
-def larges_number(arr):
-    highest = arr[0]
+    for num in arr:
+        if num > first:
+            second = first
+            first = num
+        elif first > num > second:
+            second = num
 
-    for num in arr[1:]:
-        if num > highest:
-            highest = num
-    return highest
+    if second == float('-inf'):
+        raise ValueError("No second distinct largest number found.")
+    
+    return second
 
-print(larges_number(numbers))
+
+numbers = [10, 4, 8, 22, 15]
+print(second_largest(numbers))  
