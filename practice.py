@@ -1,13 +1,11 @@
-# Write a function to calculate the sum of all elements in an array.
+# Write a function to calculate the average of an array of numbers.
 
-numbers = [1, 2, 3]
+numbers = [1, 2, 3, 4, 5]
 
-
-def sum_array(arr):
+def average_num(arr):
     total = 0
     for num in arr:
         total += num
-    return total
+    return total / len(arr)
 
-
-print(sum_array(numbers))
+print(average_num(numbers))
