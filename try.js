@@ -1,16 +1,14 @@
-function isPalindrome(num) {
-  if (num < 0) return false;
+function removeDuplicate(arr) {
+  const seen = {};
+  const result = [];
 
-  const original = num;
-  let reversed = 0;
-
-  while (num > 0) {
-    let digit = num % 10;
-    reversed = reversed * 10 + digit;
-    num = Math.floor(num / 10);
+  for (let i = 0; i < arr.length; i++) {
+    if (!seen[arr[i]]) {
+      seen[arr[i]] = true;
+      result.push(arr[i]);
+    }
   }
 
-  return original === reversed;
+  return result;
 }
-
-console.log(isPalindrome(121));
+console.log(removeDuplicate([1,2,2,3,4,4,5]));
