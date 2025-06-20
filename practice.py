@@ -1,23 +1,16 @@
-a = [1, 3, 5]
-b = [2, 4, 6]
+# get the largest number in array
+
+array = [4, 6, 1, 2, 7, 18, 14, 15]
 
 
-def merge_sorted_array(arr1, arr2):
-    result = []
-    i = j = 0
+def largest_number(arr):
+    largest = arr[0]
 
-    while i < len(arr1) and j < len(arr2):
-        if arr1[i] < arr2[j]:
-            result.append(arr1[i])
-            i += 1
-        else:
-            result.append(arr2[j])
-            j += 1
+    for i in arr:
+        if i > largest:
+            largest = i
 
-    result.extend(arr1[i:])
-    result.extend(arr2[j:])
-
-    return result
+    return largest
 
 
-print(merge_sorted_array(a, b))
+print(largest_number(array))
